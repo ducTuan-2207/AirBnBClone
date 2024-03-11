@@ -14,7 +14,7 @@ struct ExploreView: View {
                 //LazyVstack chỉ tải và render chúng khi cần thiết => tiết kiệm tài nguyên, cải thiện hiệu suất
                 LazyVStack(spacing: 32) {
                     ForEach(0 ... 10 , id: \.self) { listinng in
-                        Rectangle()
+                        ListingItemView()
                             .frame(height: 400)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
