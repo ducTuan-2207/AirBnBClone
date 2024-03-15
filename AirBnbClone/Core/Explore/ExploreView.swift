@@ -17,6 +17,7 @@ struct ExploreView: View {
                         ListingItemView()
                             .frame(height: 400)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
+                            
                     }
                     .padding()
                 }
