@@ -10,16 +10,24 @@ import SwiftUI
 struct ExploreView: View {
     var body: some View {
         NavigationStack {
-            ScrollView {
-                //LazyVstack chỉ tải và render chúng khi cần thiết => tiết kiệm tài nguyên, cải thiện hiệu suất
-                LazyVStack(spacing: 32) {
-                    ForEach(0 ... 10 , id: \.self) { listinng in
-                        ListingItemView()
-                            .frame(height: 400)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                            
+            VStack {
+                SearchAndFilterBar()
+                ScrollView {
+                    //LazyVstack chỉ tải và render chúng khi cần thiết => tiết kiệm tài nguyên, cải thiện hiệu suất
+                    LazyVStack(spacing: 32) {
+                        ForEach(0 ... 10 , id: \.self) { listinng in
+                            NavigationLink(value: listinng){
+                                ListingItemView()
+                                    .frame(height: 400)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                            }
+                                
+                        }
+                        .padding()
                     }
-                    .padding()
+                    .navigationDestination(for: Int.self) { listing in
+                        Text("listing detail view")
+                    }
                 }
             }
         }

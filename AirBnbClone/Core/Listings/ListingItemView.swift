@@ -20,16 +20,10 @@ struct ListingItemView: View {
     var body: some View {
         VStack(spacing: 8) {
             //image
-            TabView {
-                ForEach(images, id: \.self){ image in
-                    Image(image)
-                        .resizable()
-                        .scaledToFill()
-                }
-            }
+            ListingImageCarouseView()
                 .frame(height: 320)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
-                .tabViewStyle(.page)
+           
             //listing detail
             //HStack sắp xếp item theo chiều ngang
             HStack{
@@ -37,8 +31,9 @@ struct ListingItemView: View {
                 //VStack sắp xếp item theo chiều dọc
                 // .leadinng là một giá trị của enum alignment => các giá trị item sẽ được căn chỉnh theo lề trái
                 VStack(alignment: .leading) {
-                    Text("Chang hâm , HaNoi")
+                    Text("Hotel , HaNoi")
                         .fontWeight(.semibold)
+                        .foregroundStyle(.black)
                     Text("12 mi away")
                         .foregroundStyle(.gray)
                     Text("Nov 3 - 10")
@@ -54,7 +49,9 @@ struct ListingItemView: View {
                 HStack(spacing: 2){
                     Image(systemName: "star.fill")
                     Text("4.99")
+                        
                 }
+                .foregroundStyle(.black)
             }
 //            .background(.red)
             .font(.footnote)
