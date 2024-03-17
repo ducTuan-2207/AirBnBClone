@@ -42,6 +42,31 @@ struct ListingDetailView: View {
             }
             .padding(.leading)
             Divider()
+            // host info view
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Entire villa hoster by Duc Tuan")
+                        .font(.headline)
+//                        .frame(width: 250, alignment: .leading)
+                    HStack(spacing: 2) {
+                        Text("4 guests -")
+                        Text("4 bedrooms -")
+                        Text("4 beds - ")
+                        Text("3 baths")
+                    }
+                    .font(.caption)
+                }
+                Spacer()
+                
+                Image("main_avt")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 64, height: 64)
+                    .clipShape(Circle())
+                    .padding(.leading)
+                
+            }
+            .padding(.leading)
             
         }
     
