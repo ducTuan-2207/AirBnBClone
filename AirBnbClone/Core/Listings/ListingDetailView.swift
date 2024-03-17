@@ -63,7 +63,7 @@ struct ListingDetailView: View {
                     .scaledToFill()
                     .frame(width: 64, height: 64)
                     .clipShape(Circle())
-                    .padding(.leading)
+                    .padding(.trailing)
                 
             }
             .padding(.leading)
