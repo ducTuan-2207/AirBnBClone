@@ -44,7 +44,7 @@ struct ListingDetailView: View {
             Divider()
             // host info view
             HStack {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 4) {
                     Text("Entire villa hoster by Duc Tuan")
                         .font(.headline)
 //                        .frame(width: 250, alignment: .leading)
@@ -56,6 +56,7 @@ struct ListingDetailView: View {
                     }
                     .font(.caption)
                 }
+                .frame(width: 300, alignment: .leading)
                 Spacer()
                 
                 Image("main_avt")
@@ -63,11 +64,56 @@ struct ListingDetailView: View {
                     .scaledToFill()
                     .frame(width: 64, height: 64)
                     .clipShape(Circle())
-                    .padding(.trailing)
+//                    .padding(.trailing)
                 
             }
-            .padding(.leading)
-            
+            .padding()
+            Divider()
+            // listing features
+            VStack(alignment: .leading, spacing: 16) {
+                ForEach(0..<2 ){ feature in
+                    HStack(spacing: 12){
+                        Image(systemName: "medal")
+                        VStack(alignment: .leading){
+                            Text("Superhost")
+                                .font(.footnote)
+                                .fontWeight(.semibold)
+                            Text("Superhost are experience, highly rated host who are commited to providing greate starts for guests")
+                                .font(.caption)
+                                .foregroundStyle(.gray)
+                        }
+                        Spacer()
+                    }
+                }
+            }
+//            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding()
+            //bedroom view
+            Divider()
+            VStack(alignment: .leading, spacing: 16) {
+                Text("Where you'll sleep")
+                    .font(.headline)
+                ScrollView(.horizontal,showsIndicators: false){
+                    HStack(spacing: 16){
+                        ForEach(1..<5){ bedroom in
+                            VStack{
+                                Image(systemName: "bed.double")
+                                    
+                                Text("Bedroom\(bedroom)")
+                                
+                            }
+                            .frame(width: 132, height: 100)
+                            .overlay(){
+                                RoundedRectangle(cornerRadius: 12)
+                                    .stroke(lineWidth: 1)
+                                    .foregroundStyle(.gray)
+                            }
+                        }
+                    }
+                }
+                .scrollBounceBehavior(.automatic)
+            }
+            .padding()
         }
     
     }
