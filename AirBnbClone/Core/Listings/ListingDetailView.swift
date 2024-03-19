@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct ListingDetailView: View {
     var images = [
@@ -15,6 +16,8 @@ struct ListingDetailView: View {
         "listing-4",
         
     ]
+    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 21.0285, longitude: 105.8542), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+
     var body: some View {
         ScrollView {
             ListingImageCarouseView()
@@ -69,6 +72,7 @@ struct ListingDetailView: View {
             }
             .padding()
             Divider()
+            
             // listing features
             VStack(alignment: .leading, spacing: 16) {
                 ForEach(0..<2 ){ feature in
@@ -114,8 +118,69 @@ struct ListingDetailView: View {
                 .scrollBounceBehavior(.automatic)
             }
             .padding()
+            Divider()
+            
+            //listing amenitises
+            VStack(alignment: .leading, spacing: 16) {
+                Text("What this place offers")
+                    .font(.headline)
+                ForEach(0 ..< 5) { feature in
+                    HStack {
+                        Image(systemName: "wifi")
+                            .frame(width:32)
+                        Text("wifi")
+                            .font(.footnote)
+                        Spacer()
+                    }
+                    
+                }
+                
+                Divider()
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("Where you'll be")
+                        .font(.headline)
+                    Map(coordinateRegion: $region)
+                        .frame(height: 200)
+                        .clipShape(RoundedRectangle(cornerRadius: 12))
+                }
+                
+            }
+            
+            .padding(.bottom,64)
+            .overlay(alignment: .bottom) {
+                VStack {
+                    Divider()
+                        .padding(.bottom)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("$500")
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                            Text("Total before taxes")
+                                .font(.footnote)
+                            Text("20-3-2024")
+                                .font(.footnote)
+                                .fontWeight(.semibold)
+                                .underline()
+                        }
+                        Spacer()
+                        Button {
+                            
+                        } label: {
+                            Text("Reserve")
+                                .foregroundStyle(.white)
+                                .font(.subheadline)
+                                .fontWeight(.semibold)
+                                .frame(width:140, height: 40)
+                                .background(.pink)
+                                .clipShape(RoundedRectangle(cornerRadius: 8))
+                        }
+                    }
+                    .padding(.horizontal, 32)
+                }
+                .background(.white)
+            }
         }
-    
     }
 }
 
