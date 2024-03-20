@@ -55,9 +55,10 @@ struct DestinationSearchView: View {
                 
                
             }
+            
             .padding()
-            .frame(height: selectedOptions == .location ? 120 : 64)
             .background(.white)
+            .frame(height: selectedOptions == .location ? 120 : 64)
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .padding()
             .shadow(radius: 10)
@@ -93,7 +94,8 @@ struct DestinationSearchView: View {
                     
             }
             .padding()
-            .background(.white)
+            .frame(height: selectedOptions == .location ? 120 : 64)
+            .background(.white)    
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .padding()
             .shadow(radius: 10)
@@ -113,6 +115,7 @@ struct DestinationSearchView: View {
             }
             .padding()
             .background(.white)
+            .frame(height: selectedOptions == .location ? 120 : 64)
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .padding()
             .shadow(radius: 10)
