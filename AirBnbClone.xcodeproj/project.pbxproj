@@ -15,6 +15,7 @@
 		2273538F2B9DB02800C1F409 /* ListingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2273538E2B9DB02800C1F409 /* ListingItemView.swift */; };
 		227C0D082BA56A0900B8B76B /* ListingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C0D072BA56A0900B8B76B /* ListingDetailView.swift */; };
 		227C0D0B2BA59A3100B8B76B /* ListingImageCarouseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227C0D0A2BA59A3100B8B76B /* ListingImageCarouseView.swift */; };
+		22D23A472BAAEA2500F9B06D /* DestinationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D23A462BAAEA2500F9B06D /* DestinationSearchView.swift */; };
 		22F77A8F2B9E86D100F08F0A /* SearchAndFilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F77A8E2B9E86D100F08F0A /* SearchAndFilterBar.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		2273538E2B9DB02800C1F409 /* ListingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingItemView.swift; sourceTree = "<group>"; };
 		227C0D072BA56A0900B8B76B /* ListingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailView.swift; sourceTree = "<group>"; };
 		227C0D0A2BA59A3100B8B76B /* ListingImageCarouseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingImageCarouseView.swift; sourceTree = "<group>"; };
+		22D23A462BAAEA2500F9B06D /* DestinationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationSearchView.swift; sourceTree = "<group>"; };
 		22F77A8E2B9E86D100F08F0A /* SearchAndFilterBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAndFilterBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +131,7 @@
 			children = (
 				2273538C2B9DA35800C1F409 /* ExploreView.swift */,
 				22F77A8E2B9E86D100F08F0A /* SearchAndFilterBar.swift */,
+				22D23A462BAAEA2500F9B06D /* DestinationSearchView.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				227353752B9D9EED00C1F409 /* ContentView.swift in Sources */,
+				22D23A472BAAEA2500F9B06D /* DestinationSearchView.swift in Sources */,
 				2273538F2B9DB02800C1F409 /* ListingItemView.swift in Sources */,
 				227C0D0B2BA59A3100B8B76B /* ListingImageCarouseView.swift in Sources */,
 				2273538D2B9DA35800C1F409 /* ExploreView.swift in Sources */,
