@@ -18,10 +18,27 @@ struct ListingDetailView: View {
     ]
     @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 21.0285, longitude: 105.8542), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
 
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         ScrollView {
-            ListingImageCarouseView()
-                .frame(height: 270)
+            ZStack(alignment: .topLeading) {
+                ListingImageCarouseView()
+                    .frame(height: 320)
+                
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .foregroundStyle(.black)
+                        .background {
+                            Circle()
+                                .fill(.white)
+                                .frame(width: 32, height: 32)
+                        }
+                        .padding(32)
+                }
+
+            }
             VStack(alignment: .leading,spacing: 8 ) {
                 Text("Miani Villa")
                     .font(.title)
@@ -145,42 +162,47 @@ struct ListingDetailView: View {
                 }
                 
             }
-            
+            .ignoresSafeArea()
             .padding(.bottom,64)
-            .overlay(alignment: .bottom) {
-                VStack {
-                    Divider()
-                        .padding(.bottom)
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("$500")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                            Text("Total before taxes")
-                                .font(.footnote)
-                            Text("20-3-2024")
-                                .font(.footnote)
-                                .fontWeight(.semibold)
-                                .underline()
-                        }
-                        Spacer()
-                        Button {
-                            
-                        } label: {
-                            Text("Reserve")
-                                .foregroundStyle(.white)
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                                .frame(width:140, height: 40)
-                                .background(.pink)
-                                .clipShape(RoundedRectangle(cornerRadius: 8))
-                        }
-                    }
-                    .padding(.horizontal, 32)
-                }
-                .background(.white)
-            }
+            
         }
+        .overlay(
+            VStack {
+                Divider()
+                    .padding(.bottom)
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("$500")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                        Text("Total before taxes")
+                            .font(.footnote)
+                        Text("20-3-2024")
+                            .font(.footnote)
+                            .fontWeight(.semibold)
+                            .underline()
+                    }
+                    Spacer()
+                    Button {
+                        
+                    } label: {
+                        Text("Reserve")
+                            .foregroundStyle(.white)
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                            .frame(width:140, height: 40)
+                            .background(.pink)
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                    }
+                }
+                .padding(.horizontal, 32)
+                
+            }
+            .background(Color.white)
+            .padding(.bottom, -10),
+            alignment: .bottom
+        )
+
     }
 }
 
