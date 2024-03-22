@@ -9,13 +9,7 @@ import SwiftUI
 
 struct ListingItemView: View {
     
-    var images = [
-        "listing-1",
-        "listing-2",
-        "listing-3",
-        "listing-4",
-        
-    ]
+    let listing: Listing
     
     var body: some View {
         VStack(spacing: 8) {
@@ -31,7 +25,7 @@ struct ListingItemView: View {
                 //VStack sắp xếp item theo chiều dọc
                 // .leadinng là một giá trị của enum alignment => các giá trị item sẽ được căn chỉnh theo lề trái
                 VStack(alignment: .leading) {
-                    Text("Hotel , HaNoi")
+                    Text("\(listing.city), \(listing.state)")
                         .fontWeight(.semibold)
                         .foregroundStyle(.black)
                     Text("12 mi away")
@@ -62,6 +56,6 @@ struct ListingItemView: View {
 
 struct ListingView_Previews: PreviewProvider {
     static var previews: some View {
-        ListingItemView()
+        ListingItemView(listing: DeveloperPreview.shared.listing[0])
     }
 }
