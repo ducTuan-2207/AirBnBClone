@@ -35,6 +35,10 @@ struct ExploreView: View {
                     }
                     .padding()
                 }
+                .navigationDestination(for: Listing.self) { listing in
+                    ListingDetailView(listing: listing)
+                        .navigationBarBackButtonHidden()
+                }
             }
         }
     }
